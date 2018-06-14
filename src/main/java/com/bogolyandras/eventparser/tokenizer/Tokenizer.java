@@ -5,6 +5,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Tokenizer class that split sentences at whitespaces and tokenizes them.
+ * @param <T> Enum class of terminal symbols.
+ */
 public abstract class Tokenizer<T extends Enum<T>> {
 
     public final List<Token<T>> tokenize(String sentence) {

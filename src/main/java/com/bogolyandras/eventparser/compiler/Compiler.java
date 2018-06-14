@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * A compiler will hold the parser and the tokenizer together
  * @param <T> The type of parser
- * @param <U> The type of non-terminal symbols tied to the parser
+ * @param <U> The type of terminal symbols tied to the parser
  */
 public final class Compiler<T extends RecursiveDescentParser<U>, U extends Enum<U>> {
 

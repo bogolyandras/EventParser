@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * Node class that can have a parent and multiple children.
- * @param <T> Enum class of the token symbols.
+ * @param <T> Enum class of the terminal symbols.
  */
 public final class Node<T extends Enum<T>> {
 

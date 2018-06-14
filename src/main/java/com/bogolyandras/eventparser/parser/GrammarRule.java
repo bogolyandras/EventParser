@@ -2,6 +2,10 @@ package com.bogolyandras.eventparser.parser;
 
 import java.util.List;
 
+/**
+ * Class for holding grammar rules.
+ * @param <T> Enum type of terminal symbols.
+ */
 public final class GrammarRule<T extends Enum<T>> {
 
     /**

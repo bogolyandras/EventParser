@@ -2,6 +2,10 @@ package com.bogolyandras.eventparser.tokenizer;
 
 import java.util.List;
 
+/**
+ * An iterator class that helps with constructing parse trees.
+ * @param <T> Enum class of terminal symbols.
+ */
 public final class TokenIterator<T extends Enum<T>> {
 
     private final List<Token<T>> tokens;

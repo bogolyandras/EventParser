@@ -44,7 +44,7 @@ public final class EventDefinitionTokenizer extends Tokenizer<EventDefinitionTok
         } else if (string.matches("(at)")) {
             return EventDefinitionTokenKind.AtPreposition;
         } else {
-            throw new IllegalSymbolException("Failed to parse word: '" + string + "'");
+            throw new IllegalSymbolException("Illegal Symbol found: '" + string + "'");
         }
 
     }
