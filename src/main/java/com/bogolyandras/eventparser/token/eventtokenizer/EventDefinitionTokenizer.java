@@ -3,7 +3,7 @@ package com.bogolyandras.eventparser.token.eventtokenizer;
 import com.bogolyandras.eventparser.token.Token;
 import com.bogolyandras.eventparser.token.Tokenizer;
 
-public class EventDefinitionTokenizer extends Tokenizer<EventDefinitionTokenKind> {
+public final class EventDefinitionTokenizer extends Tokenizer<EventDefinitionTokenKind> {
 
     @Override
     protected final Token<EventDefinitionTokenKind> parseString(String string) {

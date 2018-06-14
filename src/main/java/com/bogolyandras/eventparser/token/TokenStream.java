@@ -1,10 +1,8 @@
-package com.bogolyandras.eventparser.grammar;
-
-import com.bogolyandras.eventparser.token.Token;
+package com.bogolyandras.eventparser.token;
 
 import java.util.List;
 
-public class TokenStream<T extends Enum<T>> {
+public final class TokenStream<T extends Enum<T>> {
 
     private final List<Token<T>> tokens;
     public int currentPosition = 0;

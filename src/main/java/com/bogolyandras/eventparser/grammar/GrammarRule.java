@@ -2,7 +2,7 @@ package com.bogolyandras.eventparser.grammar;
 
 import java.util.List;
 
-public class GrammarRule<T extends Enum<T>> {
+public final class GrammarRule<T extends Enum<T>> {
 
     /**
      * Left hand side must be a non terminal Symbol

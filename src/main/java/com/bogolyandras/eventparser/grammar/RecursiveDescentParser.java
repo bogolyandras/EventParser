@@ -3,6 +3,7 @@ package com.bogolyandras.eventparser.grammar;
 import com.bogolyandras.eventparser.parser.value.Node;
 import com.bogolyandras.eventparser.parser.value.Tree;
 import com.bogolyandras.eventparser.token.Token;
+import com.bogolyandras.eventparser.token.TokenStream;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package com.bogolyandras.eventparser.event;
 
-public class RecurringEvent {
+public final class RecurringEvent {
 
 
 

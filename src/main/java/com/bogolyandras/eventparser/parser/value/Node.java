@@ -3,7 +3,7 @@ package com.bogolyandras.eventparser.parser.value;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Node<T extends Enum<T>> {
+public final class Node<T extends Enum<T>> {
 
     public final String symbolName;
     public final String symbolValue;

@@ -1,6 +1,6 @@
 package com.bogolyandras.eventparser.parser.value;
 
-public class Tree<T extends Enum<T>> {
+public final class Tree<T extends Enum<T>> {
 
     public final Node<T> firstNode;
 

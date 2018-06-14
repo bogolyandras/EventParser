@@ -4,7 +4,7 @@ package com.bogolyandras.eventparser.grammar;
  * A symbol container class that can hold either a terminal or non-terminal symbol
  * @param <T> the enum class for the terminals
  */
-public class Symbol<T extends Enum<T>> {
+public final class Symbol<T extends Enum<T>> {
 
     private final T terminalSymbol;
     private final String nonTerminalSymbol;

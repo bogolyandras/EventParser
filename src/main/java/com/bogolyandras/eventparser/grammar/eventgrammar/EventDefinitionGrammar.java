@@ -7,7 +7,7 @@ import com.bogolyandras.eventparser.token.eventtokenizer.EventDefinitionTokenKin
 
 import java.util.Arrays;
 
-public class EventDefinitionGrammar extends RecursiveDescentParser<EventDefinitionTokenKind> {
+public final class EventDefinitionGrammar extends RecursiveDescentParser<EventDefinitionTokenKind> {
 
     public EventDefinitionGrammar() {
         super(
