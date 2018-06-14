@@ -1,4 +1,4 @@
 package com.bogolyandras.eventparser.parser;
 
-public class ParserTester {
+public class ParserTest {
 }

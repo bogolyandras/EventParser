@@ -3,7 +3,7 @@ package com.bogolyandras.eventparser.grammar;
 import com.bogolyandras.eventparser.parser.value.Node;
 import com.bogolyandras.eventparser.parser.value.Tree;
 import com.bogolyandras.eventparser.token.Token;
-import com.bogolyandras.eventparser.token.TokenStream;
+import com.bogolyandras.eventparser.token.TokenIterator;
 
 import java.util.List;
 
@@ -27,11 +27,10 @@ public abstract class RecursiveDescentParser<T extends Enum<T>> {
 
     public Tree<T> parse(final List<Token<T>> tokens) {
 
-        final int currentPosition = 0;
-
         for (GrammarRule<T> grammarRule : grammarRules) {
-            final Node<T> match = match(grammarRule, new TokenStream<>(tokens));
-            if (match != null) {
+            final TokenIterator<T> tokenIterator = new TokenIterator<>(tokens);
+            final Node<T> match = match(grammarRule, tokenIterator);
+            if (match != null && !tokenIterator.hasNext()) {
                 return new Tree<>(match);
             }
         }
@@ -40,7 +39,7 @@ public abstract class RecursiveDescentParser<T extends Enum<T>> {
 
     }
 
-    private Node<T> match(GrammarRule<T> grammarRule, final TokenStream<T> tokenStream) {
+    private Node<T> match(GrammarRule<T> grammarRule, final TokenIterator<T> tokenIterator) {
 
         final Node<T> node = new Node<>(grammarRule.leftHandSide, null);
 
@@ -51,15 +50,15 @@ public abstract class RecursiveDescentParser<T extends Enum<T>> {
                 boolean matchFound = false;
                 for (GrammarRule<T> anotherGrammarRule : grammarRules) {
                     if (anotherGrammarRule.leftHandSide.equals(symbol.getNonTerminalSymbol())) {
-                        final int currentPosition = tokenStream.currentPosition;
-                        final Node<T> match = match(anotherGrammarRule, tokenStream);
-                        if (match == null) {
-                            //Rollback
-                            tokenStream.currentPosition = currentPosition;
-                        } else {
+                        final TokenIterator<T> backupTokenIterator = tokenIterator.copy();
+                        final Node<T> match = match(anotherGrammarRule, tokenIterator);
+                        if (match != null) {
                             node.children.add(match);
                             matchFound = true;
                             break;
+                        } else {
+                            //Rollback
+                            tokenIterator.rollback(backupTokenIterator);
                         }
                     }
                 }
@@ -72,8 +71,8 @@ public abstract class RecursiveDescentParser<T extends Enum<T>> {
             } else if (symbol.isTerminalSymbol()) {
 
                 final Token<T> next;
-                if (tokenStream.hasNext()) {
-                    next = tokenStream.next();
+                if (tokenIterator.hasNext()) {
+                    next = tokenIterator.next();
                 } else {
                     return null;
                 }
