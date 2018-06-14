@@ -1,5 +1,8 @@
 package com.bogolyandras.eventparser.tokenizer.eventtokenizer;
 
+/**
+ * Defining the kind of tokens that can occur.
+ */
 public enum EventDefinitionTokenKind {
 
     /**

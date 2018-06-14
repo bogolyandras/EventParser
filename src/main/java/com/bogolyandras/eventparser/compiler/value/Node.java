@@ -3,6 +3,10 @@ package com.bogolyandras.eventparser.compiler.value;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Node class that can have a parent and multiple children.
+ * @param <T> Enum class of the token symbols.
+ */
 public final class Node<T extends Enum<T>> {
 
     public final String symbolName;

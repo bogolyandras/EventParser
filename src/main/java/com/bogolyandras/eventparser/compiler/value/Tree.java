@@ -1,5 +1,9 @@
 package com.bogolyandras.eventparser.compiler.value;
 
+/**
+ * A tree container that can hold one node.
+ * @param <T> Enum class of the token symbols.
+ */
 public final class Tree<T extends Enum<T>> {
 
     public final Node<T> firstNode;

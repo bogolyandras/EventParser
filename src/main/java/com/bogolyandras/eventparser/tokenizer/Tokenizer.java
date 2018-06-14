@@ -25,6 +25,6 @@ public abstract class Tokenizer<T extends Enum<T>> {
 
     }
 
-    protected abstract Token<T> parseString(String string) throws IllegalSymbol;
+    protected abstract Token<T> parseString(String string) throws IllegalSymbolException;
 
 }

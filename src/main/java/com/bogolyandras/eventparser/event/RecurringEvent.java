@@ -13,7 +13,7 @@ public final class RecurringEvent {
 
 
         if (grammarTree.firstNode.symbolName.equals(
-                EventDefinitionParser.EventDefinitionTypes.EventWithWeekDayAtSomeTime.toString()
+                EventDefinitionParser.EventDefinitionTypes.EventWithWeekDayAtSpecificHourAndMinute.toString()
         )) {
 
 

@@ -1,17 +1,22 @@
 package com.bogolyandras.eventparser.tokenizer;
 
+/**
+ * A token container class that can hold the lexeme and the specific terminal symbol.
+ * @param <T> Enum class of the token symbols.
+ */
 public class Token<T extends Enum<T>> {
 
     public final String lexeme;
     public final T kind;
 
     public Token(String lexeme, T kind) {
+
         if (lexeme == null) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Must provide a lexeme!");
         }
 
         if (kind == null) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Must provide the kind of lexeme!");
         }
 
         this.lexeme = lexeme;

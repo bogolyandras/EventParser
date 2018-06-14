@@ -25,7 +25,7 @@ public abstract class RecursiveDescentParser<T extends Enum<T>> {
         this.grammarRules = grammarRules;
     }
 
-    public Tree<T> parse(final List<Token<T>> tokens) {
+    public final Tree<T> parse(final List<Token<T>> tokens) throws ParseException {
 
         for (GrammarRule<T> grammarRule : grammarRules) {
             final TokenIterator<T> tokenIterator = new TokenIterator<>(tokens);
@@ -35,7 +35,7 @@ public abstract class RecursiveDescentParser<T extends Enum<T>> {
             }
         }
 
-        return null;
+        throw new ParseException("Failed to parse the tokens according to the grammar specified.");
 
     }
 
@@ -87,7 +87,7 @@ public abstract class RecursiveDescentParser<T extends Enum<T>> {
                 }
 
             } else {
-                throw new IllegalStateException("Unknown type of symbol "  + symbol);
+                throw new ParseException("Unknown type of symbol "  + symbol);
             }
 
         }
