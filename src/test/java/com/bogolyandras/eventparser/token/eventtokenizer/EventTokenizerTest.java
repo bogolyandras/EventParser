@@ -7,11 +7,13 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class EventTokenizerTest extends EventDefinitionTokenizer {
+public class EventTokenizerTest {
+
+    private final EventDefinitionTokenizer eventDefinitionTokenizer = new EventDefinitionTokenizer();
 
     @Test(expected = IllegalArgumentException.class)
     public void testNullStringInput() {
-        super.parseString(null);
+        eventDefinitionTokenizer.parseString(null);
     }
 
     @Test
@@ -40,7 +42,7 @@ public class EventTokenizerTest extends EventDefinitionTokenizer {
     }
 
     private void validateFirstPattern(String pattern) {
-        final List<Token<EventDefinitionTokenKind>> tokens = super.tokenize(pattern);
+        final List<Token<EventDefinitionTokenKind>> tokens = eventDefinitionTokenizer.tokenize(pattern);
         assertEquals(4, tokens.size());
         assertEquals(EventDefinitionTokenKind.Number, tokens.get(0).kind);
         assertEquals(EventDefinitionTokenKind.DayWordAfterNumber, tokens.get(1).kind);
@@ -49,7 +51,7 @@ public class EventTokenizerTest extends EventDefinitionTokenizer {
     }
 
     private void validateSecondPattern(String pattern) {
-        final List<Token<EventDefinitionTokenKind>> tokens = super.tokenize(pattern);
+        final List<Token<EventDefinitionTokenKind>> tokens = eventDefinitionTokenizer.tokenize(pattern);
         assertEquals(3, tokens.size());
         assertEquals(EventDefinitionTokenKind.Weekday, tokens.get(0).kind);
         assertEquals(EventDefinitionTokenKind.AtPreposition, tokens.get(1).kind);
