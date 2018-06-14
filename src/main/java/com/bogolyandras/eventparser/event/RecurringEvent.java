@@ -49,7 +49,7 @@ public final class RecurringEvent {
                     ordinalIndicator = "th";
             }
 
-            this.value = "This event will take place at " + dayNum + ordinalIndicator + " of every " + children.get(3).symbolValue + ".";
+            this.value = "This event will take place on " + dayNum + ordinalIndicator + " of every " + children.get(3).symbolValue + ".";
 
         } else {
 
