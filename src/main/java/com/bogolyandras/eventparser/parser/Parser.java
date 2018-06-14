@@ -1,12 +1,13 @@
 package com.bogolyandras.eventparser.parser;
 
-import com.bogolyandras.eventparser.grammar.Grammar;
+import com.bogolyandras.eventparser.grammar.RecursiveDescentParser;
+import com.bogolyandras.eventparser.parser.value.Tree;
 import com.bogolyandras.eventparser.token.Token;
 import com.bogolyandras.eventparser.token.Tokenizer;
 
 import java.util.List;
 
-public final class Parser<T extends Grammar<U>, U extends Enum<U>> {
+public final class Parser<T extends RecursiveDescentParser<U>, U extends Enum<U>> {
 
     private final T grammar;
     private final Tokenizer<U> tokenizer;
@@ -25,7 +26,7 @@ public final class Parser<T extends Grammar<U>, U extends Enum<U>> {
         this.tokenizer = tokenizer;
     }
 
-    public final Node parse(String sentence) {
+    public final Tree<U> parse(String sentence) {
 
         if (sentence == null) {
             throw new IllegalArgumentException("Sentence must contain text!");

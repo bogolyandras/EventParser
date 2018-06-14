@@ -1,8 +1,8 @@
 package com.bogolyandras.eventparser;
 
 import com.bogolyandras.eventparser.grammar.eventgrammar.EventDefinitionGrammar;
-import com.bogolyandras.eventparser.parser.Node;
 import com.bogolyandras.eventparser.parser.Parser;
+import com.bogolyandras.eventparser.parser.value.Tree;
 import com.bogolyandras.eventparser.token.eventtokenizer.EventDefinitionTokenKind;
 import com.bogolyandras.eventparser.token.eventtokenizer.EventDefinitionTokenizer;
 
@@ -17,7 +17,7 @@ public class Main {
                 = new Parser<>(new EventDefinitionGrammar(), new EventDefinitionTokenizer());
 
         for (String exampleSentence : exampleSentences) {
-            final Node parse = parser.parse(exampleSentence);
+            final Tree<EventDefinitionTokenKind> parse = parser.parse(exampleSentence);
             System.out.println(parse);
         }
 

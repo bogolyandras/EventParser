@@ -1,15 +1,21 @@
 package com.bogolyandras.eventparser.grammar;
 
-import com.bogolyandras.eventparser.parser.Node;
+import com.bogolyandras.eventparser.parser.value.Node;
+import com.bogolyandras.eventparser.parser.value.Tree;
 import com.bogolyandras.eventparser.token.Token;
 
 import java.util.List;
 
-public abstract class Grammar<T extends Enum<T>> {
+/**
+ * A recursive descent parser that can take in specific grammar rules.
+ * For now, it cannot deal with recursive non-terminal symbols.
+ * @param <T> The enum class for terminal symbols
+ */
+public abstract class RecursiveDescentParser<T extends Enum<T>> {
 
     private final List<GrammarRule<T>> grammarRules;
 
-    public Grammar(List<GrammarRule<T>> grammarRules) {
+    public RecursiveDescentParser(List<GrammarRule<T>> grammarRules) {
 
         if (grammarRules == null) {
             throw new IllegalArgumentException("Must provide grammar rules!");
@@ -18,14 +24,14 @@ public abstract class Grammar<T extends Enum<T>> {
         this.grammarRules = grammarRules;
     }
 
-    public Node parse(final List<Token<T>> tokens) {
+    public Tree<T> parse(final List<Token<T>> tokens) {
 
         final int currentPosition = 0;
 
         for (GrammarRule<T> grammarRule : grammarRules) {
             final Node<T> match = match(grammarRule, new TokenStream<>(tokens));
             if (match != null) {
-                return match;
+                return new Tree<>(match);
             }
         }
 
@@ -35,7 +41,7 @@ public abstract class Grammar<T extends Enum<T>> {
 
     private Node<T> match(GrammarRule<T> grammarRule, final TokenStream<T> tokenStream) {
 
-        final Node<T> node = new Node<>(grammarRule.leftHandSide);
+        final Node<T> node = new Node<>(grammarRule.leftHandSide, null);
 
         for (Symbol<T> symbol : grammarRule.rightHandSide) {
 
@@ -73,8 +79,7 @@ public abstract class Grammar<T extends Enum<T>> {
 
 
                 if (next.kind.equals(symbol.getTerminalSymbol())) {
-                    final Node terminalNode = new Node(symbol.getTerminalSymbol().toString(), next.lexeme);
-                    terminalNode.parent = node;
+                    final Node<T> terminalNode = new Node<>(symbol.getTerminalSymbol().toString(), next.lexeme, node);
                     node.children.add(terminalNode);
                 } else {
                     //Cancel match for this rule

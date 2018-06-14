@@ -7,8 +7,8 @@ public class GrammarRule<T extends Enum<T>> {
     /**
      * Left hand side must be a non terminal Symbol
      */
-    public final String leftHandSide;
-    public final List<Symbol<T>> rightHandSide;
+    final String leftHandSide;
+    final List<Symbol<T>> rightHandSide;
 
     public GrammarRule(String leftHandSide, List<Symbol<T>> rightHandSide) {
 

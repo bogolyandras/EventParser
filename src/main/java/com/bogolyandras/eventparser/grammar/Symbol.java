@@ -1,5 +1,9 @@
 package com.bogolyandras.eventparser.grammar;
 
+/**
+ * A symbol container class that can hold either a terminal or non-terminal symbol
+ * @param <T> the enum class for the terminals
+ */
 public class Symbol<T extends Enum<T>> {
 
     private final T terminalSymbol;
@@ -23,22 +27,22 @@ public class Symbol<T extends Enum<T>> {
         return new Symbol<>(null, nonTerminalSymbol);
     }
 
-    public boolean isTerminalSymbol() {
+    boolean isTerminalSymbol() {
         return terminalSymbol != null;
     }
 
-    public T getTerminalSymbol() {
+    T getTerminalSymbol() {
         if (terminalSymbol == null) {
             throw new IllegalStateException();
         }
         return terminalSymbol;
     }
 
-    public boolean isNonTerminalSymbol() {
+    boolean isNonTerminalSymbol() {
         return nonTerminalSymbol != null;
     }
 
-    public String getNonTerminalSymbol() {
+    String getNonTerminalSymbol() {
         if (nonTerminalSymbol == null) {
             throw new IllegalStateException();
         }

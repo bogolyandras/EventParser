@@ -1,13 +1,13 @@
 package com.bogolyandras.eventparser.grammar.eventgrammar;
 
-import com.bogolyandras.eventparser.grammar.Grammar;
+import com.bogolyandras.eventparser.grammar.RecursiveDescentParser;
 import com.bogolyandras.eventparser.grammar.GrammarRule;
 import com.bogolyandras.eventparser.grammar.Symbol;
 import com.bogolyandras.eventparser.token.eventtokenizer.EventDefinitionTokenKind;
 
 import java.util.Arrays;
 
-public class EventDefinitionGrammar extends Grammar<EventDefinitionTokenKind> {
+public class EventDefinitionGrammar extends RecursiveDescentParser<EventDefinitionTokenKind> {
 
     public EventDefinitionGrammar() {
         super(
