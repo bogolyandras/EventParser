@@ -6,10 +6,3 @@ before_install:
 
 after_success:
   - codecov
-
-addons:
-  sonarcloud:
-    organization: "bogolyandras-github"
-
-script:
-  - sonar-scanner
