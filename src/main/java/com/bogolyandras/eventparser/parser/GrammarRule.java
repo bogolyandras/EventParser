@@ -1,4 +1,4 @@
-package com.bogolyandras.eventparser.grammar;
+package com.bogolyandras.eventparser.parser;
 
 import java.util.List;
 

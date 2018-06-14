@@ -1,9 +1,9 @@
-package com.bogolyandras.eventparser.grammar;
+package com.bogolyandras.eventparser.parser;
 
-import com.bogolyandras.eventparser.parser.value.Node;
-import com.bogolyandras.eventparser.parser.value.Tree;
-import com.bogolyandras.eventparser.token.Token;
-import com.bogolyandras.eventparser.token.TokenIterator;
+import com.bogolyandras.eventparser.compiler.value.Node;
+import com.bogolyandras.eventparser.compiler.value.Tree;
+import com.bogolyandras.eventparser.tokenizer.Token;
+import com.bogolyandras.eventparser.tokenizer.TokenIterator;
 
 import java.util.List;
 

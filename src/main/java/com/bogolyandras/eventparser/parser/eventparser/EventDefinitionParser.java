@@ -1,19 +1,19 @@
-package com.bogolyandras.eventparser.grammar.eventgrammar;
+package com.bogolyandras.eventparser.parser.eventparser;
 
-import com.bogolyandras.eventparser.grammar.RecursiveDescentParser;
-import com.bogolyandras.eventparser.grammar.GrammarRule;
-import com.bogolyandras.eventparser.grammar.Symbol;
-import com.bogolyandras.eventparser.token.eventtokenizer.EventDefinitionTokenKind;
+import com.bogolyandras.eventparser.parser.RecursiveDescentParser;
+import com.bogolyandras.eventparser.parser.GrammarRule;
+import com.bogolyandras.eventparser.parser.Symbol;
+import com.bogolyandras.eventparser.tokenizer.eventtokenizer.EventDefinitionTokenKind;
 
 import java.util.Arrays;
 
-public final class EventDefinitionGrammar extends RecursiveDescentParser<EventDefinitionTokenKind> {
+public final class EventDefinitionParser extends RecursiveDescentParser<EventDefinitionTokenKind> {
 
-    public EventDefinitionGrammar() {
+    public EventDefinitionParser() {
         super(
                 Arrays.asList(
                     new GrammarRule<>(
-                            "EventWithDayOfSomething",
+                            EventDefinitionTypes.XDayOfSpecificInterval.toString(),
                             Arrays.asList(
                                     Symbol.fromTerminal(EventDefinitionTokenKind.Number),
                                     Symbol.fromTerminal(EventDefinitionTokenKind.DayWordAfterNumber),
@@ -22,7 +22,7 @@ public final class EventDefinitionGrammar extends RecursiveDescentParser<EventDe
                             )
                     ),
                     new GrammarRule<>(
-                            "EventWithWeekDayAtSomeTime",
+                            EventDefinitionTypes.EventWithWeekDayAtSomeTime.toString(),
                             Arrays.asList(
                                     Symbol.fromTerminal(EventDefinitionTokenKind.Weekday),
                                     Symbol.fromTerminal(EventDefinitionTokenKind.AtPreposition),
@@ -31,6 +31,10 @@ public final class EventDefinitionGrammar extends RecursiveDescentParser<EventDe
                     )
                 )
         );
+    }
+
+    public enum EventDefinitionTypes {
+        XDayOfSpecificInterval, EventWithWeekDayAtSomeTime
     }
 
 }

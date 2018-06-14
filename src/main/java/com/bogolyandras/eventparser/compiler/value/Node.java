@@ -1,4 +1,4 @@
-package com.bogolyandras.eventparser.parser.value;
+package com.bogolyandras.eventparser.compiler.value;
 
 import java.util.ArrayList;
 import java.util.List;

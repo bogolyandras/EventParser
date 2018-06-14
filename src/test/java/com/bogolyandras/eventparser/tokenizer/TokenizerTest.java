@@ -1,4 +1,4 @@
-package com.bogolyandras.eventparser.token;
+package com.bogolyandras.eventparser.tokenizer;
 
 import org.junit.Test;
 

@@ -1,12 +1,13 @@
-package com.bogolyandras.eventparser.token.eventtokenizer;
+package com.bogolyandras.eventparser.tokenizer.eventtokenizer;
 
-import com.bogolyandras.eventparser.token.Token;
-import com.bogolyandras.eventparser.token.Tokenizer;
+import com.bogolyandras.eventparser.tokenizer.IllegalSymbol;
+import com.bogolyandras.eventparser.tokenizer.Token;
+import com.bogolyandras.eventparser.tokenizer.Tokenizer;
 
 public final class EventDefinitionTokenizer extends Tokenizer<EventDefinitionTokenKind> {
 
     @Override
-    protected final Token<EventDefinitionTokenKind> parseString(String string) {
+    protected final Token<EventDefinitionTokenKind> parseString(String string) throws IllegalSymbol {
 
         if (string == null) {
             throw new IllegalArgumentException("Must provide a string for parsing!");
@@ -33,7 +34,7 @@ public final class EventDefinitionTokenizer extends Tokenizer<EventDefinitionTok
         } else if (string.matches("(at)")) {
             return EventDefinitionTokenKind.AtPreposition;
         } else {
-            throw new IllegalArgumentException("Failed to parse word: '" + string + "'");
+            throw new IllegalSymbol("Failed to parse word: '" + string + "'");
         }
 
     }

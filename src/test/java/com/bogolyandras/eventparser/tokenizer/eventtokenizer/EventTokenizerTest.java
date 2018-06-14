@@ -1,6 +1,6 @@
-package com.bogolyandras.eventparser.token.eventtokenizer;
+package com.bogolyandras.eventparser.tokenizer.eventtokenizer;
 
-import com.bogolyandras.eventparser.token.Token;
+import com.bogolyandras.eventparser.tokenizer.Token;
 import org.junit.Test;
 
 import java.util.List;

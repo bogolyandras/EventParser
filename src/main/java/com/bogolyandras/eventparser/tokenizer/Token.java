@@ -1,4 +1,4 @@
-package com.bogolyandras.eventparser.token;
+package com.bogolyandras.eventparser.tokenizer;
 
 public class Token<T extends Enum<T>> {
 

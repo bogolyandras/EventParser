@@ -1,4 +1,4 @@
-package com.bogolyandras.eventparser.token.eventtokenizer;
+package com.bogolyandras.eventparser.tokenizer.eventtokenizer;
 
 public enum EventDefinitionTokenKind {
 

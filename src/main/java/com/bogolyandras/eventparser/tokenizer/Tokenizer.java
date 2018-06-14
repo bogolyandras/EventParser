@@ -1,4 +1,4 @@
-package com.bogolyandras.eventparser.token;
+package com.bogolyandras.eventparser.tokenizer;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -25,6 +25,6 @@ public abstract class Tokenizer<T extends Enum<T>> {
 
     }
 
-    protected abstract Token<T> parseString(String string);
+    protected abstract Token<T> parseString(String string) throws IllegalSymbol;
 
 }
